@@ -1,7 +1,7 @@
 
 # fake-tweets
 
-A micro codebase that builds a Markov chain from a tweet archive in JSON format, then spits out any number of statistically similar, though fake, tweets.
+A small library that builds a Markov chain from a tweet archive in JSON format, then spits out any number of statistically similar, though fake, tweets.
 
 ## Trying it Out
 
