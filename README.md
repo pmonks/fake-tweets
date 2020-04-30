@@ -5,12 +5,12 @@ A small library that builds a Markov chain from a tweet archive in JSON format, 
 
 ## Trying it Out
 
-Download a JSON tweet archive, for example via the [Twitter export function](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive), or something like [this script](https://gist.github.com/manuchandel/bc8a6ca4b1527b7594945e5091013905), or [this archive of hot, toxic garbage](http://www.trumptwitterarchive.com/archive).
+Download a JSON tweet archive, for example via something like [this script](https://gist.github.com/manuchandel/bc8a6ca4b1527b7594945e5091013905), or [this archive of hot, toxic garbage](http://www.trumptwitterarchive.com/archive).  You can also use the [Twitter export function](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive), but the JSON it exports needs to be cleaned up (JSON key `"full_text"` needs to be renamed to `"text"`).
 
 Clone this repo, then:
 
 ```shell
-clj -r
+$ clj -r
 ```
 
 ```clojure
@@ -21,7 +21,8 @@ clj -r
 (def tweets (ft/load-tweets json-tweet-archive))
 (def vocabulary (ft/vocabulary tweets))
 (def markov-chain (ft/markov-chain tweets 3))   ; Degree 3 generally seems to give the best results
-(ft/fake-tweet markov-chain 50)
+
+(ft/fake-tweet markov-chain 100)
 ```
 
 ## Contributor Information
