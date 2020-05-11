@@ -127,7 +127,7 @@
                   [#"(?i) a \. c \. "       " A.C. "]
                   ; Number & time formatting
                   [#"(\d+)\s*,\s+(\d+)"     "$1,$2"]
-                  [#"(\d+)\s*,\s+(\d+)"     "$1,$2"]  ; TODO: figure out how to not do this twice...
+                  [#"(\d+)\s*,\s+(\d+)"     "$1,$2"]  ; TODO: figure out how to not have to do this twice...
                   [#"(\d+)\s*\.\s+(\d+)"    "$1.$2"]
                   [#"(\d+)\s*:\s+(\d+)"     "$1:$2"]
                   ; Punctuation
@@ -137,7 +137,6 @@
                   [#",+"                    ","]    ; Collapse all sequences of ,
                   [#"[\.!?] - "             " - "]  ; Replace . ! ? before - with only -
                   [#"([!?]+)\."             "$1"]   ; Replace ! ? before . with only ! or ?
-                  [#"-[\s-]*-"              "-"]    ; Replace repeated - (with or without whitespace in between) with a single -
                  ])))
 
 (defn fake-tweet
