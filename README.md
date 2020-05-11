@@ -34,7 +34,7 @@ e.g.
 ]
 ```
 
-Clone this repo, then:
+Clone this repo, start a REPL, then use the various fns in the `fake-tweets.core` ns:
 
 ```shell
 $ git clone https://github.com/pmonks/fake-tweets.git
