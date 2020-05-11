@@ -94,6 +94,15 @@
   [tweets degree]
   (mc/collate (tweet-words tweets) degree))
 
+(defn capitalise-word
+  [word]
+  (str (s/capitalize (first word)) (s/join (rest word))))
+
+(defn capitalise-sentences
+  [words]
+  (cons (capitalise-word (first words))   ; Capitalise first word in tweet
+        (rest words)))                    ;####TODO: run through (rest words) and capitalise every word after a "."
+
 (defn apply-substitutions
   [s]
   (s/trim
@@ -137,5 +146,6 @@
   (s/trim
     (apply-substitutions
       (s/join " "
-        (take num-words-in-tweet
-          (mc/generate markov-chain))))))
+        (capitalise-sentences
+          (take num-words-in-tweet
+            (mc/generate markov-chain)))))))
