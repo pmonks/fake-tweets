@@ -5,7 +5,7 @@ A small library that builds a Markov chain from a tweet archive in JSON format, 
 
 ## Trying it Out
 
-Download a JSON tweet archive, for example via something like [this script](https://gist.github.com/manuchandel/bc8a6ca4b1527b7594945e5091013905), or [this archive of hot, toxic garbage](http://www.trumptwitterarchive.com/archive).  You can also use the [Twitter export function](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive), but the JSON it exports needs to be cleaned up (JSON key `"full_text"` needs to be renamed to `"text"`).
+Download a JSON tweet archive, for example via [Twitter's export function](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive), something like [this script](https://gist.github.com/manuchandel/bc8a6ca4b1527b7594945e5091013905), or [this archive of hot, toxic garbage](http://www.trumptwitterarchive.com/archive).  The JSON must be an array of objects, with each object containing either a `text` or `full_text` key, whose value is the full text of that tweet.  No other keys are used.
 
 Clone this repo, then:
 
@@ -19,10 +19,14 @@ $ clj -r
 (require '[fake-tweets.core :as ft] :reload-all)
 (def json-tweet-archive (io/file "hot-toxic-garbage.json"))
 (def tweets (ft/load-tweets json-tweet-archive))
-(def vocabulary (ft/vocabulary tweets))
 (def markov-chain (ft/markov-chain tweets 3))   ; Degree 3 generally seems to give the best results
 
+; Generate some drivel
 (ft/fake-tweet markov-chain 100)
+
+; How big is the vocabulary of the tweeter?  Note: punctuation, numbers, emojis, hashtags, @mentions etc. are all included in the count
+(def vocabulary (ft/vocabulary tweets))
+(count vocabulary)
 ```
 
 ## Contributor Information
