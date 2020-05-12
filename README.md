@@ -5,6 +5,8 @@ A small library that builds a Markov chain from a tweet archive in JSON format, 
 
 ## Trying it Out
 
+### Providing a JSON Archive
+
 Download a JSON tweet archive, for example via [Twitter's export function](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive), using something like [this script](https://gist.github.com/manuchandel/bc8a6ca4b1527b7594945e5091013905), or from [this archive of hot, toxic garbage](http://www.trumptwitterarchive.com/archive).
 
 The JSON must be an array of objects, with each object containing either a `text` or `full_text` key, whose value is the full text of that tweet.  No other keys are used.
@@ -34,28 +36,38 @@ e.g.
 ]
 ```
 
-Clone this repo, start a REPL, then use the various fns in the `fake-tweets.core` ns:
+### Running the Code
+
+Clone this repo, symlink your tweet archive, then start a REPL using the provided init script:
 
 ```shell
 $ git clone https://github.com/pmonks/fake-tweets.git
 $ cd fake-tweets
-$ clj -r
+$ ln -s /path/to/your/tweet-archive.json hot-toxic-garbage.json
+$ clj -i init.clj -r
 ```
 
+This will load and analyse the given tweet archive, then generate one fake tweet 100 "words" in length.  To generate more:
+
 ```clojure
-(require '[clojure.java.io :as io])
-(require '[fake-tweets.core :as ft] :reload-all)
-
-(def json-tweet-archive (io/file "hot-toxic-garbage.json"))
-(def tweets (ft/load-tweets json-tweet-archive))
-(def markov-chain (ft/markov-chain tweets 3))   ; Degree 3 generally seems to give the best results
-
-; Generate 100 "words" of fake hot, toxic garbage
 (ft/fake-tweet markov-chain 100)
+```
 
-; How big is the vocabulary of the tweeter?  Note: punctuation, numbers, emojis, hashtags, @mentions etc. are all included in the count
-(def vocabulary (ft/vocabulary tweets))
+In addition to the `markov-chain` var, the init script also initialises vars named `vocabulary`, `vocab-freq` and
+`sorted-vocab-freq` which allow primitive analysis of the tweeter's vocabulary using standard Clojure functions:
+
+```clojure
+; How bigly is the tweeter's vocabulary?  Note: punctuation, numbers, emojis, hashtags, @mentions etc. are all included in the count
 (count vocabulary)
+
+; Does the tweeter excrete covfefe?
+(not (empty? (filter #(s/includes? (s/lower-case %) "covfefe") vocabulary)))   ; Not idiomatic Clojure, but I don't agree with the rationale...
+
+; How much?
+(get vocab-freq "covfefe")
+
+; What are the tweeter's favourite 100 words?
+(take 100 sorted-vocab-freq)
 ```
 
 ## Contributor Information

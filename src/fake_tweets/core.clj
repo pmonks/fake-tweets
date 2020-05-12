@@ -54,8 +54,8 @@
                   [#"[“”]"                               "\""]        ; Normalise double quote characters
                   [#"[-‐‑‒–—―⸺⸻]"                    "-"]         ; Normalise Unicode hyphens
                   [#"-+"                                 "-"]         ; De-dupe hyphens
-                  [#"(\w)-(\s)"                          "$1 - $2"]   ; Spread out "orphaned" hyphens
-                  [#"(\s)-([a-zA-Z])"                    "$1 - $2"]   ;           "
+                  [#"(\s)-([a-zA-Z@])"                   "$1- $2"]    ; Spread out "orphaned" hyphens
+                  [#"(\w)-(\s)"                          "$1 -$2"]    ;           "
                   [#"(\!|\?|:|;|,|/)"                    " $1 "]      ; Place whitespace around certain characters.  Note: adding '\p{So}|' to the regex would also separate out emojis etc.
                   [#"\&+"                                " & "]       ;           "
                   [#"\.+"                                " . "]       ;           "
@@ -77,28 +77,30 @@
                       (ch/parse-stream (io/reader readable)
                                        clojurise-json-key))))))
 
-(defn tweet-words
-  "Returns a sequence of all words, in order, in all tweets."
+(defn words
+  "The sequence of all words, in order, in all tweets."
   [tweets]
   (let [tweets-str (s/join " \n " tweets)]
     (map s/trim (filter not-blank? (s/split tweets-str #"(\s|\p{javaSpaceChar})+")))))   ; Greedily split on whitespace, including Unicode whitespace
 
 
 (defn vocabulary
-  "Returns the vocabulary of the given tweets - the unique set of words, sorted."
-  [tweets]
-  (sort (distinct (tweet-words tweets))))
+  "The vocabulary of the given words - the unique set of words, sorted."
+  [words]
+  (sort (distinct words)))
 
 (defn markov-chain
   "Construct a markov chain of the given degree, for the given words."
-  [tweets degree]
-  (mc/collate (tweet-words tweets) degree))
+  [words degree]
+  (mc/collate words degree))
 
 (defn capitalise-word
+  "Capitalises a single word, by capitalising the first character and leaving all other characters unchanged."
   [word]
   (str (s/capitalize (first word)) (s/join (rest word))))
 
 (defn capitalise-sentences
+  "Capitalises a set of sentences, by calling capitalise-word on the first word in each sentence.  NOTE: NOT YET FULLY IMPLEMENTED!"
   [words]
   (cons (capitalise-word (first words))   ; Capitalise first word in tweet
         (rest words)))                    ;####TODO: run through (rest words) and capitalise every word after a "."
