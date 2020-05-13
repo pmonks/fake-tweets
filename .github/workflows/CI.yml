@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Install Java LTS
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Install Clojure CLI
+        uses: DeLaGuardo/setup-clojure@2.0
+        with:
+          tools-deps: latest
+
+      - name: Download dependencies
+        run: clojure -Srepro -e "(println \"Dependencies downloaded\")"
+      - name: Check for outdated dependencies
+        run: clojure -Srepro -Aoutdated
+      - name: Check code
+        run: clojure -Srepro -Acheck
