@@ -83,6 +83,9 @@
   (let [tweets-str (s/join " \n " tweets)]
     (map s/trim (filter not-blank? (s/split tweets-str #"(\s|\p{javaSpaceChar})+")))))   ; Greedily split on whitespace, including Unicode whitespace
 
+(defn words-from-file
+  [readable]
+  (words (load-tweets readable)))
 
 (defn vocabulary
   "The vocabulary of the given words - the unique set of words, sorted."
@@ -93,6 +96,11 @@
   "Construct a markov chain of the given degree, for the given words."
   [words degree]
   (mc/collate words degree))
+
+(defn markov-chain-from-file
+  "Convenience fn that chains together all of the steps from JSON file to markov-chain."
+  [readable]
+  (markov-chain (words-from-file readable)))
 
 (defn capitalise-word
   "Capitalises a single word, by capitalising the first character and leaving all other characters unchanged."
