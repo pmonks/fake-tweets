@@ -1,5 +1,4 @@
-
-[![Build Status](https://travis-ci.com/pmonks/fake-tweets.svg?branch=master)](https://travis-ci.com/pmonks/fake-tweets)
+[![Build Status](https://github.com/pmonks/fake-tweets/workflows/CI/badge.svg)](https://github.com/pmonks/fake-tweets/actions?query=workflow%3ACI)
 [![Open Issues](https://img.shields.io/github/issues/pmonks/fake-tweets.svg)](https://github.com/pmonks/fake-tweets/issues)
 [![License](https://img.shields.io/github/license/pmonks/fake-tweets.svg)](https://github.com/pmonks/fake-tweets/blob/master/LICENSE)
 
