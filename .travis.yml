@@ -1,0 +1,17 @@
+language: clojure
+
+jdk:
+  - openjdk11
+
+env:
+  - CLOJURE_VERSION=1.10.1.536
+
+before_install:
+  # Install Clojure CLI tools, sicne TravisCI doesn't have native support yet...
+  - curl -O https://download.clojure.org/install/linux-install-$CLOJURE_VERSION.sh
+  - chmod +x linux-install-$CLOJURE_VERSION.sh
+  - sudo ./linux-install-$CLOJURE_VERSION.sh
+
+script:
+  - clj -Aancient
+  - clj -Acheck
