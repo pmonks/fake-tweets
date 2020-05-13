@@ -1,4 +1,5 @@
-language: clojure
+# Note: language clojure implies Leiningen, which we're not using here...
+language: java
 
 jdk:
   - openjdk11
