@@ -14,5 +14,5 @@ before_install:
   - sudo ./linux-install-$CLOJURE_VERSION.sh
 
 script:
-  - clojure -Aancient
-  - clojure -Acheck
+  - clojure -Srepro -Aancient
+  - clojure -Srepro -Acheck
