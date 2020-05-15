@@ -2,7 +2,7 @@
 (require '[clojure.java.io :as io])
 (require '[fake-tweets.core :as ft] :reload-all)
 
-(def tweet-words (ft/words (ft/load-tweets (io/file "hot-toxic-garbage.json"))))
+(def tweet-words (ft/words-from-file (io/file "hot-toxic-garbage.json")))
 (def markov-chain (ft/markov-chain tweet-words 3))   ; Degree 3 generally seems to give the best results
 
 ; Generate a fake tweet of 100 "words"
