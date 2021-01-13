@@ -51,10 +51,10 @@ $ ln -s /path/to/your/tweet-archive.json hot-toxic-garbage.json
 $ clj -i init.clj -r
 ```
 
-This will load and analyse the given tweet archive, then generate one fake tweet 100 "words" in length.  To generate more:
+This will load and analyse the given tweet archive, then generate one fake tweet up to 100 "words" in length.  To generate more:
 
 ```clojure
-(ft/fake-tweet markov-chain 100)
+(ft/fake-tweet markov-chain)
 ```
 
 In addition to the `markov-chain` var, the init script also initialises vars named `vocabulary`, `vocab-freq` and
