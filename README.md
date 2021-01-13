@@ -11,7 +11,7 @@ A small library that builds a Markov chain from a tweet archive in JSON format, 
 
 ### Providing a JSON Archive
 
-Download a JSON tweet archive, for example via [Twitter's export function](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive), using something like [this script](https://gist.github.com/manuchandel/bc8a6ca4b1527b7594945e5091013905), or from [this archive of hot, toxic garbage](http://www.trumptwitterarchive.com/archive).
+Download a JSON tweet archive, for example via [Twitter's export function](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive), using something like [this script](https://gist.github.com/manuchandel/bc8a6ca4b1527b7594945e5091013905), or from [this archive of hot, toxic garbage](https://www.thetrumparchive.com/).
 
 The JSON must be an array of objects, with each object containing either a `text` or `full_text` key, whose value is the full text of that tweet.  No other keys are used.
 
