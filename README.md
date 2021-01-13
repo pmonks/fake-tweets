@@ -1,4 +1,5 @@
 [![Build Status](https://github.com/pmonks/fake-tweets/workflows/build/badge.svg)](https://github.com/pmonks/fake-tweets/actions?query=workflow%3Abuild)
+[![Dependencies](https://github.com/pmonks/fake-tweets/workflows/dependencies/badge.svg)](https://github.com/pmonks/fake-tweets/actions?query=workflow%3Adependencies)
 [![Open Issues](https://img.shields.io/github/issues/pmonks/fake-tweets.svg)](https://github.com/pmonks/fake-tweets/issues)
 [![License](https://img.shields.io/github/license/pmonks/fake-tweets.svg)](https://github.com/pmonks/fake-tweets/blob/master/LICENSE)
 
