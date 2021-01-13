@@ -13,3 +13,4 @@ pom.xml.asc
 *.log
 uberjar/
 hot-toxic-garbage.json
+.eastwood
