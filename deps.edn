@@ -6,7 +6,7 @@
 ; letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 ;
 
-{:deps {org.clojure/clojure   {:mvn/version "1.10.1"}
+{:deps {org.clojure/clojure   {:mvn/version "1.10.2"}
         rm-hull/markov-chains {:mvn/version "0.1.1"}
         cheshire/cheshire     {:mvn/version "5.10.0"}}
  :aliases
@@ -30,5 +30,5 @@
 
     ; clj -M:outdated
     :outdated
-      {:extra-deps {antq/antq {:mvn/version "0.10.2"}}
+      {:extra-deps {antq/antq {:mvn/version "0.10.3"}}
        :main-opts  ["-m" "antq.core"]}}}
