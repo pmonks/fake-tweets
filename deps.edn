@@ -14,13 +14,13 @@
     ; clj -M:check
     :check
       {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
-                                     :sha     "cd1f25456de5eebda0a69602dd3445905382b3a4"}}
+                                     :sha     "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
        :main-opts  ["-m" "clj-check.check"]}
 
 
     ; clj -M:kondo
     :kondo
-      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.03.03"}}
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.03.22"}}
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
 
     ; clj -M:eastwood
