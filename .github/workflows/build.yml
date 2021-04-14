@@ -12,6 +12,7 @@ jobs:
       - name: Install Java LTS
         uses: actions/setup-java@v2
         with:
+          distribution: 'adopt'
           java-version: 11
 
       - name: Install Clojure CLI
