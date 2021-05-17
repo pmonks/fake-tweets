@@ -16,7 +16,7 @@ jobs:
           java-version: 11
 
       - name: Install Clojure CLI
-        uses: DeLaGuardo/setup-clojure@3.2
+        uses: DeLaGuardo/setup-clojure@3.3
         with:
           tools-deps: latest
 
