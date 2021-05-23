@@ -25,7 +25,7 @@
 
     ; clj -M:eastwood
     :eastwood
-      {:extra-deps {jonase/eastwood {:mvn/version "0.4.2"}}
+      {:extra-deps {jonase/eastwood {:mvn/version "0.4.3"}}
        :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
 
     ; clj -M:outdated
