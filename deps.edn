@@ -8,27 +8,26 @@
 
 {:deps {org.clojure/clojure   {:mvn/version "1.10.3"}
         rm-hull/markov-chains {:mvn/version "0.1.1"}
-        cheshire/cheshire     {:mvn/version "5.10.0"}}
+        cheshire/cheshire     {:mvn/version "5.10.1"}}
  :aliases
    {
     ; clj -M:check
     :check
-      {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
-                                     :sha     "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
+      {:extra-deps {com.github.athos/clj-check {:git/sha "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
        :main-opts  ["-m" "clj-check.check"]}
 
 
     ; clj -M:kondo
     :kondo
-      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.06.18"}}
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.10.19"}}
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
 
     ; clj -M:eastwood
     :eastwood
-      {:extra-deps {jonase/eastwood {:mvn/version "0.6.0"}}
-       :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
+      {:extra-deps {jonase/eastwood {:mvn/version "0.9.9"}}
+       :main-opts  ["-m" "eastwood.lint" {:source-paths ["src"]}]}
 
     ; clj -M:outdated
     :outdated
-      {:extra-deps {com.github.liquidz/antq {:mvn/version "0.15.3"}}
+      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.2.0"}}
        :main-opts  ["-m" "antq.core"]}}}
