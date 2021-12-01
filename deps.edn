@@ -22,12 +22,12 @@
     ; clj -M:kondo
     :kondo
       {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.10.19"}}
-       :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
+       :main-opts  ["-m" "clj-kondo.main" "--lint" "src" "resources"]}
 
     ; clj -M:eastwood
     :eastwood
       {:extra-deps {jonase/eastwood {:mvn/version "0.9.9"}}
-       :main-opts  ["-m" "eastwood.lint" {:source-paths ["src"]}]}
+       :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
 
     ; clj -M:outdated
     :outdated
