@@ -43,6 +43,7 @@
   (filter not-blank?
     (s/split (replace-all (s/join " 🔚 " tweets)
                           [["&amp;"             "&"]         ; Unescape HTML entities
+                           ["&amp"              "&"]         ;           "
                            ["&quot;"            "\""]        ;           "
                            ["&lt;"              "<"]         ;           "
                            ["&gt;"              ">"]         ;           "
@@ -84,7 +85,7 @@
 (defn vocabulary
   "The vocabulary of the given words - the unique set of words, sorted."
   [words]
-  (sort (distinct words)))
+  (sort (remove (partial = "🔚") (distinct words))))
 
 (defn markov-chain
   "Construct a markov chain of the given degree, for the given words."
