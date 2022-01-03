@@ -1,7 +1,7 @@
 SPDXVersion: SPDX-2.1
 DataLicense: CC0-1.0
 Creator: Peter Monks
-PackageName: fake-tweets
+PackageName: com.github.pmonks/fake-tweets
 PackageOriginator: Peter Monks
 PackageHomePage: https://github.com/pmonks/fake-tweets
 PackageLicenseDeclared: CC-BY-NC-SA-4.0
