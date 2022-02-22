@@ -9,7 +9,7 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure            {:mvn/version "1.10.3"}
         rm-hull/markov-chains          {:mvn/version "0.1.1"}
-        cheshire/cheshire              {:mvn/version "5.10.1"}
+        cheshire/cheshire              {:mvn/version "5.10.2"}
         ch.qos.logback/logback-classic {:mvn/version "1.2.10"}}
  :aliases
    {
@@ -21,15 +21,15 @@
 
     ; clj -M:kondo
     :kondo
-      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.01.15"}}
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.02.09"}}
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src" "resources"]}
 
     ; clj -M:eastwood
     :eastwood
-      {:extra-deps {jonase/eastwood {:mvn/version "1.2.0"}}
+      {:extra-deps {jonase/eastwood {:mvn/version "1.2.2"}}
        :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
 
     ; clj -M:outdated
     :outdated
-      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.4.0"}}
+      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.5.0"}}
        :main-opts  ["-m" "antq.core"]}}}
