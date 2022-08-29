@@ -10,7 +10,7 @@
  :deps {org.clojure/clojure            {:mvn/version "1.11.1"}
         rm-hull/markov-chains          {:mvn/version "0.1.1"}
         cheshire/cheshire              {:mvn/version "5.11.0"}
-        ch.qos.logback/logback-classic {:mvn/version "1.2.11"}}
+        ch.qos.logback/logback-classic {:mvn/version "1.4.0"}}
  :aliases
    {
     ; clj -M:check
