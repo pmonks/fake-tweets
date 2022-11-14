@@ -21,7 +21,7 @@
 
     ; clj -M:kondo
     :kondo
-      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.10.14"}}
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.11.02"}}
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src" "resources"]}
 
     ; clj -M:eastwood
@@ -31,5 +31,5 @@
 
     ; clj -M:outdated
     :outdated
-      {:extra-deps {com.github.liquidz/antq {:mvn/version "2.1.939"}}
+      {:extra-deps {com.github.liquidz/antq {:mvn/version "2.1.946"}}
        :main-opts  ["-m" "antq.core"]}}}
