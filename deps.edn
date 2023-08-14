@@ -10,7 +10,7 @@
  :deps {org.clojure/clojure            {:mvn/version "1.11.1"}
         rm-hull/markov-chains          {:mvn/version "0.1.1"}
         cheshire/cheshire              {:mvn/version "5.11.0"}
-        ch.qos.logback/logback-classic {:mvn/version "1.4.8"}}
+        ch.qos.logback/logback-classic {:mvn/version "1.4.11"}}
  :aliases
    {
     ; clj -M:check
@@ -31,5 +31,5 @@
 
     ; clj -M:outdated
     :outdated
-      {:extra-deps {com.github.liquidz/antq {:mvn/version "2.5.1095"}}
+      {:extra-deps {com.github.liquidz/antq {:mvn/version "2.5.1109"}}
        :main-opts  ["-m" "antq.core"]}}}
