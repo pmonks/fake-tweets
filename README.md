@@ -1,9 +1,10 @@
+# fake-tweets
+
 [![CI Status](https://github.com/pmonks/fake-tweets/workflows/CI/badge.svg)](https://github.com/pmonks/fake-tweets/actions?query=workflow%3ACI+branch%3Amain)
 [![Dependencies](https://github.com/pmonks/fake-tweets/workflows/dependencies/badge.svg)](https://github.com/pmonks/fake-tweets/actions?query=workflow%3Adependencies+branch%3Amain)
 [![Open Issues](https://img.shields.io/github/issues/pmonks/fake-tweets.svg)](https://github.com/pmonks/fake-tweets/issues)
 [![License](https://img.shields.io/github/license/pmonks/fake-tweets.svg)](https://github.com/pmonks/fake-tweets/blob/main/LICENSE)
-
-# fake-tweets
+![Maintained](https://badges.ws/badge/?label=maintained&value=yes,+at+author's+discretion)
 
 A small library that builds a Markov chain from a tweet archive in JSON format, then spits out any number of statistically similar, though fake, tweets.
 
